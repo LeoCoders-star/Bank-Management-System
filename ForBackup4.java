@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class JavaProjek4 {
+public class ForBackup4 {
     static String[] nameUsers = new String[100];
     static int index = 0, positionSender, positionReceiver;
     static int[] accountNumber = new int[100];
