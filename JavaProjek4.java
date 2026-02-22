@@ -17,7 +17,8 @@ public class JavaProjek4 {
             System.out.print("\n3. Deposit");
             System.out.print("\n4. Withdraw");
             System.out.print("\n5. Transfer Money");
-            System.out.print("\n6. Exit");
+            System.out.print("\n6. Search Account");
+            System.out.print("\n7. Exit");
 
             System.out.print("\nChoose option: ");
             startMenu = input.nextInt();
@@ -44,8 +45,13 @@ public class JavaProjek4 {
                     break;
 
                 case 6:
-                    return; // keluar dari menu
+                    searchAccount();
+                    break;
 
+                case 7:
+                    System.out.print("\nThank You for using Bank Management System.");
+                    System.out.print("\nProgram terminated.");
+                    return; 
                 default:
                     System.out.print("Invalid Option!");
             }
@@ -172,7 +178,7 @@ public class JavaProjek4 {
     public static void transferMoney() {
 
         Scanner input = new Scanner(System.in);
-        int accountNumberSender, accountNumberReceiver, position;
+        int accountNumberSender, accountNumberReceiver;
         double tranferValue;
 
         System.out.print("Enter sender account number: "); 
@@ -215,6 +221,28 @@ public class JavaProjek4 {
             }
         } else {
             System.out.print("\nInvalid Account!\n\n");
+        }
+
+    }
+
+    public static void searchAccount() {
+
+        Scanner input = new Scanner(System.in);
+        int accountNumber, position;
+
+        System.out.print("\nEnter account number: ");
+        accountNumber = input.nextInt();
+
+        position = accountNumber - 1001;
+
+        int searchAccount = findAccount(accountNumber);
+
+        if (searchAccount != -1) {
+            System.out.print("\n\nAccount Found!");
+            System.out.print("\nName: " + nameUsers[position]);
+            System.out.print("\nBalance: " + balanceUsers[position] + "\n\n");
+        } else {
+            System.out.print("\n\nAccount not found! \n");
         }
 
     }
